@@ -2,13 +2,9 @@
 class Book extends Document
 {
     protected static string $documentFormat = "Book";
-    protected string $authorName;
-    protected int $pagesCount;
-    public function __construct(int $publicationYear, string $documentName, string $authorName, int $pagesCount)
+    public function __construct(int $publicationYear, string $documentName, protected string $authorName, protected int $pagesCount)
     {
         parent::__construct($publicationYear, $documentName);
-        $this->authorName = $authorName;
-        $this->pagesCount = $pagesCount;
     }
     public function __toString(): string
     {

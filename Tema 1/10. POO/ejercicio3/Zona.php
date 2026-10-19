@@ -3,17 +3,10 @@
 namespace ejercicio3;
 class Zona
 {
-
-    protected string $zoneName;
-    protected int $capacity;
     protected int $ticketsLeft;
     protected int $currentVisitorCount;
 
-    public function __construct(int $capacity, string $zoneName)
-    {
-        $this->capacity = $capacity;
-        $this->zoneName = $zoneName;
-    }
+    public function __construct(private int $capacity, private string $zoneName){}
 
     public function __toString(): string
     {

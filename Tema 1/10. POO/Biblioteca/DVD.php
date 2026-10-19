@@ -2,11 +2,9 @@
 class DVD extends Document
 {
     protected static string $documentFormat = "DVD";
-    protected int $unitCount;
-    public function __construct(int $publicationYear, string $documentName, string $unitCount)
+    public function __construct(protected int $publicationYear, protected string $documentName, protected int $unitCount)
     {
         parent::__construct($publicationYear, $documentName);
-        $this->unitCount = $unitCount;
     }
     public function __toString(): string
     {

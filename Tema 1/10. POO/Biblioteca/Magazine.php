@@ -2,11 +2,9 @@
 class Magazine extends Document
 {
     protected static string $documentFormat = "Magazine";
-    protected int $pagesCount;
-    public function __construct(int $publicationYear, string $documentName, int $pagesCount)
+    public function __construct(int $publicationYear, string $documentName, protected int $pagesCount)
     {
         parent::__construct($publicationYear, $documentName);
-        $this->pagesCount = $pagesCount;
     }
     public function __toString(): string
     {
