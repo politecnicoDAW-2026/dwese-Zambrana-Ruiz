@@ -1,12 +1,16 @@
 <?php
 
 namespace ejercicio3;
+
 class Zona
 {
     protected int $ticketsLeft;
-    protected int $currentVisitorCount;
+    protected int $currentVisitorCount = 0;
 
-    public function __construct(private int $capacity, private string $zoneName){}
+    public function __construct(private int $capacity, private string $zoneName)
+    {
+        $this->ticketsLeft = $capacity;
+    }
 
     public function __toString(): string
     {
@@ -18,9 +22,13 @@ class Zona
         return $this->ticketsLeft;
     }
 
-    public function buyTicket(int $amount)
+    public function buyTicket(int $amount): bool
     {
-        if ($amount > 0 && $amount <= $this->ticketsLeft) $this->ticketsLeft = $this->ticketsLeft - $amount;
+        if ($amount > 0 && $amount <= $this->ticketsLeft) {
+            $this->ticketsLeft -= $amount;
+            return true;
+        }
+        return false;
     }
 
     public function getVisitorCount(): int
